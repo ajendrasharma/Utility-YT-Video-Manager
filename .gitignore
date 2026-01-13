@@ -7,7 +7,7 @@ __pycache__/
 env/
 build/
 develop-eggs/
-dist/
+/dist/
 downloads/
 eggs/
 lib/
@@ -30,7 +30,8 @@ videos/
 db/
 db_test/
 deployment/build/
-deployment/dist/
+deployment/dist/*
+!deployment/dist/YT Video Manager.exe
 *.spec
 
 # Testing
