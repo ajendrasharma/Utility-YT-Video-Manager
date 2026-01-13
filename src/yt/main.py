@@ -178,7 +178,7 @@ LIGHT_THEME = """
 class YouTubeApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("YT AI Analyst v2")
+        self.setWindowTitle("Youtube Video Manager")
         self.setWindowIcon(QIcon("assets/logo.png"))
         self.resize(1200, 850)
         
@@ -423,7 +423,7 @@ class YouTubeApp(QMainWindow):
 
     def show_help(self):
         help_text = """
-        <h3>How to Use YT AI Analyst v2</h3>
+        <h3>How to Use Youtube Video Manager</h3>
         <ol>
             <li><b>Fetch:</b> Paste a YouTube URL or ID in the top bar and click 'Fetch' (or press Enter).</li>
             <li><b>Select Quality:</b> Choose your preferred video resolution and audio track in the 'Download' tab.</li>
@@ -444,10 +444,10 @@ class YouTubeApp(QMainWindow):
 
     def show_credits(self):
         credits_text = """
-        <h3>YT AI Analyst v2</h3>
+        <h3>Youtube Video Manager</h3>
         <p>Built with ❤️ using PySide6 and yt-dlp.</p>
-        <p><b>Version:</b> 2.1.0 (Refactored)</p>
-        <p><b>Developer:</b> Antigravity AI</p>
+        <p><b>Version:</b> 2.1.0</p>
+        <p><b>Developer:</b> Ajendra Sharma</p>
         <p>This tool is designed for personal media archival and analysis.</p>
         """
         QMessageBox.about(self, "Credits", credits_text)

@@ -1,76 +1,85 @@
-# YT AI Analyst v2
+# Youtube Video Manager
 
-**YT AI Analyst** is a modern, desktop-based YouTube media manager built with Python and PySide6. It allows you to download videos, extract subtitles, and manage your local library with a sleek, dark-mode interface.
+**Youtube Video Manager** is a high-performance, desktop-based YouTube media manager and archive tool built with Python and PySide6. It provides a premium, modular interface for downloading videos, extracting high-quality transcripts, and managing a permanent local library.
 
 ## 🚀 Key Features
 
-- **Smart Downloader**: Fetch videos in up to 1080p with selectable audio tracks.
-- **Transcript Extraction**: Download subtitles/captions (manual or auto-generated) as `.srt` files.
-- **Explorer Tab**: Manage your downloaded library:
-  - One-click native video playback (Windows Media Player).
-  - Track storage usage and subtitle availability.
-  - Securely delete videos and history entries.
-- **Robust History**: Local JSON database (`db/download_history.json`) tracks all your downloads.
-- **Resilient File Handling**: Automatically detects downloaded files even if formats change (e.g., `.webm` merged to `.mp4`).
+- **Smart Downloader**: Fetch videos in up to 1080p with selectable audio tracks and formats.
+- **Transcript Extraction**: Download subtitles/captions (manual or auto-generated) as `.srt` files for analysis or accessibility.
+- **Library Explorer**: A dedicated management tab with:
+  - Native video playback integration.
+  - Real-time library statistics (Videos count, Storage usage, SRT coverage).
+  - Secure deletion of files and history records.
+- **Dual Themes**: Seamlessly switch between **Dark Mode** and **Modern Light Mode** (`Ctrl+L`).
+- **Menu Bar & Shortcuts**: Full keyboard control for power users (Fetch: `Ctrl+F`, Download: `Ctrl+D`, etc.).
+- **Robust Persistence**: Local JSON-based diary ensures your download history is never lost.
 
 ## 🛠️ Installation & Setup
 
-This project uses [uv](https://github.com/astral-sh/uv) for fast package management.
+This project is optimized for [uv](https://github.com/astral-sh/uv).
 
 ### Prerequisites
 
-- Python 3.13+
-- Windows 10/11 (for native playback features)
+- Python 3.12+
+- Windows (Optimized for Win 10/11)
 - `uv` installed (`pip install uv`)
 
 ### Quick Start
 
-1.  **Clone the repository**:
+1. **Clone the repository**:
+   ```powershell
+   git clone https://github.com/ajendrasharma/Utility-YT-Video-Manager.git
+   cd Utility-YT-Video-Manager
+   ```
+2. **Setup virtual environment & sync dependencies**:
+   ```powershell
+   uv sync
+   ```
+3. **Run the application**:
+   ```powershell
+   uv run yt
+   ```
 
-    ```powershell
-    git clone <repo-url>
-    cd YT
-    ```
+## ⌨️ Shortcuts
 
-2.  **Install dependencies**:
-
-    ```powershell
-    uv sync
-    ```
-
-3.  **Run the application**:
-    ```powershell
-    uv run yt
-    ```
+| Action                  | Shortcut   |
+| :---------------------- | :--------- |
+| **Fetch Metadata**      | `Ctrl + F` |
+| **Download Video**      | `Ctrl + D` |
+| **Download Transcript** | `Ctrl + T` |
+| **Toggle Theme**        | `Ctrl + L` |
+| **Refresh Library**     | `F5`       |
+| **Exit**                | `Ctrl + Q` |
 
 ## 📦 Deployment (Build .exe)
 
-You can package the application into a standalone Windows Executable that requires no Python installation to run.
+Generate a standalone Windows executable without requiring Python on the target machine:
 
-1.  **Run the build script**:
+```powershell
+uv run python deployment/build_exe.py
+```
 
-    ```powershell
-    uv run python deployment/build_exe.py
-    ```
-
-2.  **Locate the executable**:
-    The file will be generated at: `deployment/dist/YT_AI_Analyst.exe`.
+Output located at: `deployment/dist/Utility_YT_Video_Manager.exe`.
 
 ## 🧪 Development
 
 ### Project Structure
 
-- `src/yt/`: Main source code.
-  - `main.py`: UI and Application logic.
-  - `diary.py`: Database and file management.
-- `assets/`: Icons and static resources.
-- `tests/`: Unit and integration tests.
-- `deployment/`: PyInstaller configuration and output.
+```text
+src/yt/
+├── main.py            # Main entry point & Window orchestration
+├── workers.py         # Threaded download & thumbnail logic
+├── diary.py           # Database (JSON) & File resolution logic
+└── ui/
+    └── explorer_tab.py # Dedicated Library management widget
+```
 
 ### Running Tests
-
-To ensure stability, run the test suite using `pytest`:
 
 ```powershell
 uv run pytest
 ```
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
